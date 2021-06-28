@@ -1,0 +1,20 @@
+{
+  "name": "processing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "browsersync": "browser-sync start --no-ui --no-open --proxy='http://processing.local'",
+    "browsersync:reload:js": "browser-sync reload -f '*.js'",
+    "browsersync:reload:src": "browser-sync reload",
+    "watch:js": "chokidar --silent '**/*.js' '!/node_modules/' -c 'npm run browsersync:reload:js'",
+    "watch:src": "chokidar --silent '**/*.html' -c 'npm run browsersync:reload:src'",
+    "watch": "npm run browsersync & npm run watch:js & npm run watch:src"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.27.3",
+    "chokidar": "^3.5.2"
+  }
+}
